@@ -212,6 +212,18 @@
  * that the garbage/lines are erased immediately after the SD card accesses are completed.
  */
 
+
+#define BEEPER_PIN                       P1_31
+#define BTN_ENC                          P1_30
+#define LCD_PINS_D7                      P2_12 
+#define LCD_PINS_D6                      P1_23 
+#define LCD_PINS_D5                      P2_11 
+#define LCD_PINS_D4                     P0_15
+#define LCD_PINS_RS                     P0_16
+#define LCD_PINS_ENABLE                 P0_18
+
+
+
 #if IS_TFTGLCD_PANEL
 
   #if ENABLED(TFTGLCD_PANEL_SPI)
@@ -223,15 +235,16 @@
   #endif
 
 #elif HAS_WIRED_LCD
-
-  #define BEEPER_PIN                       P1_31  // EXP1.1
-  #define BTN_ENC                          P1_30  // EXP1.2
+/*
+  #define BEEPER_PIN                       P1_31  // EXP1.1  ok
+  #define BTN_ENC                          P1_30  // EXP1.2  ok
   #define BTN_EN1                          P3_26  // EXP2.5
   #define BTN_EN2                          P3_25  // EXP2.3
   #define LCD_PINS_RS                      P0_16  // EXP1.4
   #define LCD_SDSS                         P0_28  // EXP2.4
-  #define LCD_PINS_ENABLE                  P0_18  // EXP1.3
+  #define LCD_PINS_ENABLE                  P0_18  // EXP1.3  
   #define LCD_PINS_D4                      P0_15  // EXP1.5
+  */
   #if ANY(VIKI2, miniVIKI)
     #define DOGLCD_SCK                SD_SCK_PIN
     #define DOGLCD_MOSI              SD_MOSI_PIN

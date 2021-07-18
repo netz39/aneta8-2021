@@ -80,9 +80,9 @@
 #define E0_DIR_PIN                         P0_22
 #define E0_ENABLE_PIN                      P0_21
 
-#define E1_STEP_PIN                        P2_08
-#define E1_DIR_PIN                         P2_13
-#define E1_ENABLE_PIN                      P4_29
+#define Z2_STEP_PIN                        P2_08
+#define Z2_DIR_PIN                         P2_13
+#define Z2_ENABLE_PIN                      P4_29
 
 //
 // Temperature Sensors
@@ -163,6 +163,19 @@
 
 #define ONBOARD_SD_CS_PIN                  P0_06  // Chip select for "System" SD card
 
+
+/**
+ * Smart LCD adapter
+ *
+ * The Smart LCD adapter can be used for the two 10 pin LCD controllers such as
+ * REPRAP_DISCOUNT_SMART_CONTROLLER.  It can't be used for controllers that use
+ * DOGLCD_A0, DOGLCD_CS, LCD_PINS_D5, LCD_PINS_D6 or LCD_PINS_D7. A custom cable
+ * is needed to pick up 5V for the EXP1 connection.
+ *
+ * SD card on the LCD uses the same SPI signals as the LCD. This results in garbage/lines
+ * on the LCD display during accesses of the SD card. The menus/code has been arranged so
+ * that the garbage/lines are erased immediately after the SD card accesses are completed.
+ */
 #if SD_CONNECTION_IS(CUSTOM_CABLE)
 
   /**
@@ -199,19 +212,6 @@
   #endif
 #endif
 
-/**
- * Smart LCD adapter
- *
- * The Smart LCD adapter can be used for the two 10 pin LCD controllers such as
- * REPRAP_DISCOUNT_SMART_CONTROLLER.  It can't be used for controllers that use
- * DOGLCD_A0, DOGLCD_CS, LCD_PINS_D5, LCD_PINS_D6 or LCD_PINS_D7. A custom cable
- * is needed to pick up 5V for the EXP1 connection.
- *
- * SD card on the LCD uses the same SPI signals as the LCD. This results in garbage/lines
- * on the LCD display during accesses of the SD card. The menus/code has been arranged so
- * that the garbage/lines are erased immediately after the SD card accesses are completed.
- */
-
 
 #define BEEPER_PIN                       P1_31
 #define BTN_ENC                          P1_30
@@ -222,6 +222,8 @@
 #define LCD_PINS_RS                     P0_16
 #define LCD_PINS_ENABLE                 P0_18
 
+#define BTN_EN1                         P3_25
+#define BTN_EN2                         P3_26
 
 
 #if IS_TFTGLCD_PANEL
